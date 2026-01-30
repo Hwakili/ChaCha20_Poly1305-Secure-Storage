@@ -14,7 +14,7 @@ The system uses ChaCha20-Poly1305 for authenticated encryption and integrates as
 
 ##Imports and Global Setup
 
-import os
+** import os
 import json
 import zipfile
 import hashlib
@@ -54,4 +54,4 @@ def generate_user(username: str) -> UserIdentity:
         enc_public=enc_private.public_key(),
         sig_private=sig_private,
         sig_public=sig_private.public_key()
-    )
+    )**
