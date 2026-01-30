@@ -1,62 +1,59 @@
-# Secure Storage using ChaCha20-Poly1305
+# # Secure Storage using ChaCha20-Poly1305 
 
 
 
-## Overview
-This project implements a secure storage and backup system as part of the *Cryptography and Applications* module for Manchester Metropolitan University 
-The system encrypts files and folders while enforcing confidentiality, integrity, and controlled key sharing between multiple users.
+## Overview 
+This project, from the *Cryptography and Applications* unit at Manchester Metropolitan University, successfully fulfills its main objectives to deliver a secure storage and backup system. 
+The system allows files and folders to be encrypted so that only appropriate users can read or write to them, and enables keys for those files to be shared among multiple users and systems in a controlled way. 
 
-The design uses the ChaCha20-Poly1305 authenticated encryption scheme, combined with asymmetric cryptography for secure key distribution and digital signatures.
+Its design is based on the ChaCha20-Poly1305 authenticated encryption scheme, combined with asymmetric cryptography for key distribution and digital signatures. 
 
 
 # Student Details: 
 
-Name: Hamza Wakili 
 Student ID: 25934110 
-Email: Hamza_I_Wakili@stu.mmu.ac.uk 
+Student Email: 25934110@stu.mmu.ac.uk 
 
----
+--- 
 
-## Features
-- Encrypted backup of individual files and entire folders
-- Separate cryptographic keys for two independent users
-- Authenticated encryption (confidentiality + integrity)
-- Secure key sharing using asymmetric cryptography
-- Digital signatures for authenticity and tamper detection
-- Explicit tamper test demonstrating integrity enforcement
+This system encrypts your backups. 
+- It will encrypt individual files or entire folders. 
+- Two independent users of a system that employs independent cryptographic keys. 
+- Authenticated encryption (confidentiality + integrity) 
+- Asymmetric cryptography, for example, makes possible the secure sharing of secret keys. 
+- Digital signatures verify that an item is authentic and hasn’t been altered. 
+- Explicit tamper test demonstrating integrity enforcement 
 
----
+--- 
 
-## Algorithms and Primitives Used
-- **ChaCha20-Poly1305** (AEAD) – data encryption and integrity
-- **X25519** – Secure elliptic-curve for key agreement for DEK wrapping
-- **HKDF (SHA-256)** – key derivation from symmetric shared keys 
-- **Ed25519** – Edwards curve for digital signatures
-- **SHA-256** – integrity verification (hash comparison)
+## Algorithms and Primitives Used 
+1. ChaCha20-Poly1305 is a method for encrypting data. 
+2. Elliptic-curve key agreement uses X25519 algorithm to wrap the DEK but this only provides for key exchange, not encryption. 
+3. The session keys themselves are derived from the symmetric shared key using HKDF and SHA-256. 
+4. Ed25519 for digital signatures: Their system uses an Edwards-curve, rather than other elliptic curves. 
+5. **SHA-256** – integrity verification (hash comparison) 
 
----
+--- 
 
-## How to Run (Google Colab)
-1. Open the notebook `task2_secure_backup.ipynb`
-2. Run all cells in order from top to bottom
-3. Observe:
-   - Successful encryption/decryption for UserA and UserB
-   - Matching SHA-256 hashes before and after decryption
-   - Tamper test failure detection
+## How to Run (Google Colab) 
+1. Open the notebook `task2_secure_backup.ipynb` 
+2. Click “Run All” to execute all of the cells in a top-to-bottom pass. 
+3. Observe: 
+- Successful encryption/decryption for UserA and UserB 
+- SHA-256 hashes of the data before and after decryption, verifying data integrity. 
+- Tamper test failure detection 
 
-No file uploads are required; all test data is generated automatically.
+All test data is automatically generated, so it is not necessary to upload any files. 
 
----
+--- 
 
-## File Structure
-- `key_management.py` – key generation, wrapping, and unwrapping
-- `backup_crypto.py` – encryption, signing, container handling
-- `task2_secure_backup.ipynb` – executable demonstration
-- `DESIGN_RATIONALE.md` – cryptographic design decisions
-- `CODE_WALKTHROUGH.md` – detailed explanation of the code
-- `REFERENCES.md` – academic references
+## File Structure 
+1. `key_management.py`: Generates, wraps, and unwraps keys. 
+2. `backup_crypto.py` – encryption, signing, container handling 
+3. `task2_secure_backup.ipynb` – executable demonstration 
+4. `DESIGN_RATIONALE.md` – cryptographic design decisions 
+5. `CODE_WALKTHROUGH.md.` - detailed explanation of the code
 
----
 
 ## AI Assistance Disclosure
 Generative AI tools were used in a limited advisory role to clarify cryptographic concepts and review structure.  
