@@ -36,8 +36,8 @@ This system encrypts your backups.
 --- 
 
 ## How to Run (Google Colab) 
-1. Open the notebook `task2_secure_backup.ipynb` 
-2. Click “Run All” to execute all of the cells in a top-to-bottom pass. 
+1. Open the `code_walkthrough.md1 file 
+2. Copy each cell and run in google colab environment. 
 3. Observe: 
 - Successful encryption/decryption for UserA and UserB 
 - SHA-256 hashes of the data before and after decryption, verifying data integrity. 
