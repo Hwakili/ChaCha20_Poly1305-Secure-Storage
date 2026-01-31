@@ -4,6 +4,7 @@
 
 ## Overview 
 This project, from the *Cryptography and Applications* unit at Manchester Metropolitan University, successfully fulfills its main objectives to deliver a secure storage and backup system. 
+
 The system allows files and folders to be encrypted so that only appropriate users can read or write to them, and enables keys for those files to be shared among multiple users and systems in a controlled way. 
 
 Its design is based on the ChaCha20-Poly1305 authenticated encryption scheme, combined with asymmetric cryptography for key distribution and digital signatures. 
@@ -36,7 +37,7 @@ This system encrypts your backups.
 --- 
 
 ## How to Run (Google Colab) 
-1. Open the `code_walkthrough.md1 file 
+1. Open the `code_walkthrough.md file or run each code in order according to the file structure
 2. Copy each cell and run in google colab environment. 
 3. Observe: 
 - Successful encryption/decryption for UserA and UserB 
@@ -49,10 +50,11 @@ All test data is automatically generated, so it is not necessary to upload any f
 
 ## File Structure 
 1. `key_management.py`: Generates, wraps, and unwraps keys. 
-2. `backup_crypto.py` – encryption, signing, container handling 
-3. `task2_secure_backup.ipynb` – executable demonstration 
-4. `DESIGN_RATIONALE.md` – cryptographic design decisions 
-5. `CODE_WALKTHROUGH.md.` - detailed explanation of the code
+2. `backup_crypto.py` – encryption, signing, container handling
+3. `File_cryptography.py` - Text file encryption and verification 
+4. `Folder_cryptography.py` - Zip folder encryption and verification
+5. `DESIGN_RATIONALE.md` – cryptographic design decisions 
+6. `CODE_WALKTHROUGH.md.` - detailed explanation of the code
 
 
 ## AI Assistance Disclosure
