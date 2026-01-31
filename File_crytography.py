@@ -112,3 +112,33 @@ if file_hash_before == file_hash_after_A == file_hash_after_B:
     print(green("\nPASS file round trip - preserved content (hashes match)"))
 else:
     print(red("\nFAIL file hashes do not match"))
+
+
+## ADDITIONAL CELL TO BE MADE FOR INTRODUCING HASHING & STRUCTURED COLOURED OUTPUT OF KEYS ###
+
+import hashlib                                                         ####Printing Keys and Colour Setting for clear structured in code###
+from cryptography.hazmat.primitives import serialization
+
+def sha256_hex(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+def short_hex(b: bytes, n=16) -> str:
+    return b[:n].hex() + "..."
+
+def green(t): return f"\033[92m{t}\033[0m"
+def red(t):   return f"\033[91m{t}\033[0m"
+def blue(t):  return f"\033[94m{t}\033[0m"
+
+def show_public_keys(user):
+    # Public keys are safe to print; private keys should not be printed in full.
+    x_pub = user.x25519_pk.public_bytes(
+        encoding=serialization.Encoding.Raw,
+        format=serialization.PublicFormat.Raw
+    )
+    e_pub = user.ed25519_pk.public_bytes(
+        encoding=serialization.Encoding.Raw,
+        format=serialization.PublicFormat.Raw
+    )
+    print(blue(f"\n{user.label} public keys"))
+    print("  X25519:", x_pub.hex())
+    print("  Ed25519:", e_pub.hex())
