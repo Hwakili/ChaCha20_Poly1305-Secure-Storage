@@ -37,9 +37,10 @@ This system encrypts your backups.
 --- 
 
 ## How to Run (Google Colab) 
-1. Open the `code_walkthrough.md file or run each code in order according to the file structure
-2. Copy each cell and run in google colab environment. 
-3. Observe: 
+1. Install cryptography library: !pip -q install cryptography
+2. Run each code in  the file structure in order  `key_management.py` > `backup_crypto.py` > `File_cryptography.py` > `Folder_cryptography.py`
+3. Copy each code and run in a  cell and run in google colab environment. 
+4. Observe: 
 - Successful encryption/decryption for UserA and UserB 
 - SHA-256 hashes of the data before and after decryption, verifying data integrity. 
 - Tamper test failure detection 
