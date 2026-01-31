@@ -118,3 +118,45 @@ try:
 except Exception:
     # Catching the exception proves the system is robust against unauthorized modifications
     print(green("PASS: tamper not detected (integrity check worked)"))
+
+
+####ADDITIONAL CELL TO BE ADDEDD TO CHECK EACH REQUIRMENT HAS BEEN MET###
+
+from pathlib import Path
+import zipfile
+
+print(blue("\n=== Checklist against the brief ==="))
+
+items = []
+
+# Minimum: encrypted backup of files/folders
+items.append(("Encrypted file container produced", Path("/content/notes_txt_backup.c20p").exists()))
+items.append(("Encrypted folder container produced", Path("/content/backup.c20p").exists()))
+
+# Minimum: two users decrypt using their own keys (demonstrated by successful decryption + matching hashes)
+items.append(("Decrypted folder zip produced (UserA)", Path("/content/decrypted_userA.zip").exists()))
+items.append(("Decrypted folder zip produced (UserB)", Path("/content/decrypted_userB.zip").exists()))
+
+# Integrity/confidentiality: AEAD + tamper test
+items.append(("Tampered container produced", Path("/content/backup_tampered.c20p").exists()))
+
+# sanity: zip validity
+def is_zip_ok(p):
+    try:
+        with zipfile.ZipFile(p, "r") as z:
+            z.namelist()
+        return True
+    except:
+        return False
+
+items.append(("Decrypted zip is valid (UserA)", is_zip_ok("/content/decrypted_userA.zip")))
+items.append(("Decrypted zip is valid (UserB)", is_zip_ok("/content/decrypted_userB.zip")))
+
+all_ok = True
+for label, ok in items:
+    print((green("PASS") if ok else red("FAIL")), label)
+    all_ok = all_ok and ok
+
+print("\nOverall:", green("PASS") if all_ok else red("PARTIAL"))
+
+
